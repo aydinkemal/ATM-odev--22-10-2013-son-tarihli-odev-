@@ -1,19 +1,26 @@
 // ATM Uygulaması //  Kemal AYDIN   // 12253008 
-// Default şifre 1793 olarak tanımlanmıştır
+// Default id 12345; şifre 1793 olarak tanımlanmıştır
 #include <stdio.h> // genel fonksiyonları kullanabilmek için çağırılmıştır.
 #include <stdlib.h> // exit() fonksiyonunu kullanabilmek için çağırılmıştır.
 #include <conio.h> // getch() fonksiyonunu kullanabilmek için çağırılmıştır
 #include <Windows.h> // system("CLS") fonksiyonunu kullanmak için çağırılmıştır.
-int main(){ 		
+
+int main()
+{ 		
 	int sifre = 1793,sifreGirilen=0,tercih,bakiye=5000,a=0,son_bakiye,hesap_nu; // kodlamada kullanılcak degerlere bellekte int biçiminde yer ayarır.
+	int id=12345,idgirilen;
 	
 	printf("Aydin Bank ATM'sine Hos Geldiniz.\nSistem yukleniyor lutfen bekleyiniz\n");
 	Sleep(3000); // Gerçeğe yakın bir izlenim vermek için kullanıldı // sleep() fonksiyonu yazıldığı yerde işleminv (x) milisaniye kadar bekletilmesine yarar
 	system("CLS");
-	printf("Sayin Kemal AYDIN kisisel sifrenizi giriniz: "); // şifreyi almak için kullanılan ekran
+	printf("Kullanici hesap numaranizi giriniz:");
+	flushall(); // scanf fonksiyonuyla değer atanan değişkenin sıfırlanması için kullanıldı
+	scanf_s("%d",&idgirilen);
+	flushall(); // scanf fonksiyonuyla değer atanan değişkenin sıfırlanması için kullanıldı
+	printf("Sayin %d hesap nolu musterimiz lutfen kisisel sifrenizi giriniz: ",idgirilen); // şifreyi almak için kullanılan ekran
 	flushall(); // scanf fonksiyonuyla değer atanan değişkenin sıfırlanması için kullanıldı
 	scanf_s("%d",&sifreGirilen); // şifreyi alıp sifreGirilene atayan fonksiyon
-	if(sifre == sifreGirilen) // şifreyi kontrol eden fonksiyon girilen değerlerin eşitligi durumunda içerideki işlemler gerçekleşir
+	if(sifre == sifreGirilen && idgirilen == id ) // şifreyi kontrol eden fonksiyon girilen değerlerin eşitligi durumunda içerideki işlemler gerçekleşir
 	{
 		system("CLS"); // ekranın temizlenmesi icin kullanıldı
 		printf("Sifre Dogru\n");
@@ -23,11 +30,11 @@ int main(){
 		do // 1, 2 ,3 ,4 ,5 değerlerinden farklı bir değer girildiği noktada işlemin başa dönmesi ve menüye tekrar ulaşmak için kullanıldı
 		{
 			system("CLS");
-			printf("Bakiye goruntulumek icin -1- tuslayiniz\n\n"); // menü görüntüsü elde etmek için alt alta birçok printf fonk kullanılmıştır
-			printf("Para yatirmak icin -2- tuslayiniz\n\n");   // \n komutu alt satıra inmek için kullanılmıştır . karışıklığı gidermek adına yazılmıştır.
-			printf("Para cekmek icin -3- tuslayiniz\n\n");
-			printf("Havale islemleri icin -4- tuslayiniz\n\n");
-			printf("Cikmak icin -5- tuslayiniz\n");
+			printf("Bakiye goruntulumek icin -1- tuslayip onaylayiniz\n\n"); // menü görüntüsü elde etmek için alt alta birçok printf fonk kullanılmıştır
+			printf("Para yatirmak icin -2- tuslayip onaylayiniz\n\n");   // \n komutu alt satıra inmek için kullanılmıştır . karışıklığı gidermek adına yazılmıştır.
+			printf("Para cekmek icin -3- tuslayip onaylayiniz\n\n");
+			printf("Havale islemleri icin -4- tuslayip onaylayiniz\n\n");
+			printf("Cikmak icin -5- tuslayip onaylayiniz\n");
 			flushall();
 			scanf_s("%d",&tercih);   // yapılan tercihi alıp tercih adlı kutucuga yerleştiren fonk.
 
@@ -94,6 +101,7 @@ int main(){
 				printf("Aydin Bank ATM'sini kullandiginiz icin tesekkur ederiz.\n");
 				exit(1); // çıkıs yapmaya yarayan fonksiyon
 					}
+
 			}
 		}
 		while((tercih<1) || (tercih>5)); // tercin 1 den küçük veya 5 den büyük olduğu durumlar bu şekilde belirtilmiştir
@@ -105,6 +113,10 @@ int main(){
 	printf("Hatali giris yaptiniz. Program kapatiliyor!\a\n");
 	}
 
-	getch(); // kullanıcıdan karakter almayı bekliyen fonksiyon
+	_getch(); // kullanıcıdan karakter almayı bekliyen fonksiyon
 	exit(1);
 }
+
+
+
+
