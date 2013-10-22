@@ -1,5 +1,5 @@
 // ATM Uygulaması //  Kemal AYDIN   // 12253008 
-// Default id 12345; şifre 1793 olarak tanımlanmıştır
+// Default hesap numarası 12345; şifre 1793 olarak tanımlanmıştır
 #include <stdio.h> // genel fonksiyonları kullanabilmek için çağırılmıştır.
 #include <stdlib.h> // exit() fonksiyonunu kullanabilmek için çağırılmıştır.
 #include <conio.h> // getch() fonksiyonunu kullanabilmek için çağırılmıştır
